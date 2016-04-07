@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>五子棋HTML5版</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/gobang.css" />
+	</head>
+
+	<body>
+		<div class="info">
+			<h1>五子棋</h1>
+			<div class="desc">
+				<div id="pl1" class="curr">
+					<!--<span></span>-->
+					<em id="plname1"></em>
+				</div>
+				<div id="pl2">
+					<!--<span></span>-->
+					<em id="plname2"></em>
+				</div>
+			</div>
+			<div class="score">
+				<h1>比分</h1>
+				<i id="scoreA">0</i><i>:</i><i id="scoreB">0</i>
+			</div>
+		</div>
+		<div style="width: 100%;height: 100%;" class="bb">
+			<canvas id="cc" width="600" height="600" style="display: none;">
+				<div class="nosupport" style="width: 600px; height: 600px; text-align: center;line-height: 200px; color: red;">
+					浏览器不支持HTML5 canvas<br/>请使用 chrome，IE9（含）以上，360急速，火狐，等现代浏览器打开.
+				</div>
+			</canvas>
+			<div class="pnl startpnl">
+				<div class="inputinfo">
+					<img src="img/logo.png" width="100%" height="140" />
+					<div class="box">
+						<h3>选手名称</h3>
+						<label>玩家A：</label> <input type="text" id="plname1Input" value="玩家一" />
+						<label>玩家B：</label> <input type="text" id="plname2Input" value="玩家二" />
+					</div>
+					<div class="box">
+						<h3>棋子类型</h3>
+						<label for="ct2">仿真棋子</label> <input type="radio" checked="checked" name="chesstype" value="2" id="ct2" />
+						<label for="ct1">颜色棋子</label> <input type="radio" value="1" name="chesstype" id="ct1" />
+
+					</div>
+					<div class="box">
+						<h3>棋盘背景</h3>
+
+						<label for="cbg1">默认</label>
+						<input type="radio" checked="checked" name="chessbg" checked="checked" value="default" id="cbg1" />
+						<label for="cbg2"><img src="img/bg2.jpg"  width="100" height="50"/></label>
+						<input type="radio" name="chessbg" value="img/bg2.jpg" id="cbg2" />
+						<label for="cbg3"><img src="img/bg3.jpg" width="100" height="50"/></label>
+						<input type="radio" name="chessbg" value="img/bg3.jpg" id="cbg3" />
+
+						<h3>线条颜色</h3>
+						<label for="cc1">默认(绿色)</label> <input type="radio" checked="checked" name="chesscolor" value="green" id="cc1" />
+						<label for="cc2">黑色</label> <input type="radio" name="chesscolor" value="black" id="cc2" />
+						<label for="cc3">白色</label> <input type="radio" name="chesscolor" value="white" id="cc3" />
+						<label for="cc4">灰色</label> <input type="radio" name="chesscolor" value="darkgray" id="cc4" />
+						<label for="cc5">黄绿色</label> <input type="radio" name="chesscolor" value="yellowgreen" id="cc5" />
+						<label for="cc6">亮色</label> <input type="radio" name="chesscolor" value="lightseagreen" id="cc6" />
+					</div>
+				</div>
+				<input type="button" id="startgame" value="开始游戏" />
+			</div>
+			<div id="winer" class="pnl winer">
+				<img src="img/winer.jpeg" width="600" height="600" />
+				<h1 id="winerName">恭喜！xxx赢了</h1>
+				<input type="button" id="restart" value="重新开始" />
+			</div>
+
+		</div>
+	</body>
+	<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var gb = null;
+		var infoboj = document.getElementsByClassName("info")[0];
+		var pl1obj = document.getElementById("pl1");
+		var pl2obj = document.getElementById("pl2");
+		var plname1obj = document.getElementById("plname1");
+		var plname2obj = document.getElementById("plname2");
+		var chesstypeobj = document.getElementsByName("chesstype");
+		var chesscolorobj = document.getElementsByName("chesscolor");
+		var chessbgObj = document.getElementsByName("chessbg");
+		var winerpnl = document.getElementById("winer");
+		document.getElementById("startgame").addEventListener("click", function() {
+			function initParams() {
+				var chessTypeValue = 1;
+				if (chesstypeobj.length > 0) {
+					for (var i = 0; i < chesstypeobj.length; i++) {
+						if (chesstypeobj[i].checked) {
+							chessTypeValue = chesstypeobj[i].value;
+							break;
+						}
+					}
+				}
+				var linevalue = "";
+				if (chesscolorobj.length > 0) {
+					for (var i = 0; i < chesscolorobj.length; i++) {
+						if (chesscolorobj[i].checked) {
+							linevalue = chesscolorobj[i].value;
+							break;
+						}
+					}
+				}
+				var bcorimgvalue = "";
+				if (chessbgObj.length > 0) {
+					for (var i = 0; i < chessbgObj.length; i++) {
+						if (chessbgObj[i].checked) {
+							bcorimgvalue = chessbgObj[i].value;
+							break;
+						}
+					}
+				}
+				return {
+					lineColor: linevalue,
+					chessType: chessTypeValue, //1 色彩棋子 2 仿真棋子
+					playAName: plname1Input.value,
+					playBName: plname2Input.value,
+					backColorORImg: bcorimgvalue
+				};
+			}
+			document.getElementById("cc").style.display = "block";
+			gb = new gobang(initParams());
+			/**
+			 * 设置一些界面信息
+			 * @param {Object} opt
+			 */
+			gb.info = function(opt) {
+					
+					infoboj.style.visibility = "visible";
+					document.getElementsByClassName("startpnl")[0].style.visibility = "hidden";
+					plname1obj.innerHTML = opt.playAName;
+					plname2obj.innerHTML = opt.playBName;
+					if (opt.chessType == 1) {
+						var span1 = document.createElement("span");
+						pl1obj.insertBefore(span1, plname1obj)
+						var span2 = document.createElement("span");
+						pl2obj.insertBefore(span2, plname2obj)
+					} else {
+						var img1 = document.createElement("img");
+						img1.src = opt.playAImg;
+						pl1obj.insertBefore(img1, plname1obj)
+						var img2 = document.createElement("img");
+						img2.src = opt.playBImg;
+						pl2obj.insertBefore(img2, plname2obj)
+					}
+				}
+				/**
+				 * 每次下棋后触发事件 
+				 * @param {Object} c2d
+				 */
+			gb.operate = function(opt, c2d) {
+				if (!c2d.winer) {
+					pl1obj.removeAttribute("class", "curr");
+					pl2obj.removeAttribute("class", "curr");
+					if (c2d.player == 1) {
+						pl2obj.setAttribute("class", "curr");
+					} else {
+						pl1obj.setAttribute("class", "curr");
+					}
+				} else {
+					var winname = c2d.winer == 1 ? opt.playAName : opt.playBName;
+					var str = "恭喜，【" + winname + "】赢了！"
+					alert(str);
+					winerpnl.style.display = "block";
+					document.getElementById("winerName").innerHTML = "恭喜，【" + winname + "】赢了！";
+					document.getElementById("pl" + c2d.winer).style.backgroundColor = "pink";
+					
+					document.getElementById("scoreA").innerHTML=c2d.playScoreA;
+					document.getElementById("scoreB").innerHTML=c2d.playScoreB;
+				}
+			}
+			gb.start();
+		});
+		document.getElementById("restart").addEventListener("click", function() {
+			if (gb) {
+				winerpnl.style.display = "none";
+				pl1obj.removeAttribute("class", "curr");
+				pl2obj.removeAttribute("class", "curr");
+				document.getElementById("pl1").style.backgroundColor = "";
+				document.getElementById("pl2").style.backgroundColor = "";
+				gb.restart();
+			}
+		});
+	</script>
+
+</html>

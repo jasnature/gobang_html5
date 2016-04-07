@@ -1,0 +1,166 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-weight: normal;
+	font-style: normal;
+	font-family: "microsoft yahei", "arial, helvetica, sans-serif";
+}
+.info {
+	background-color: #f3f6f0;
+	height: 100px;
+	width: 600px;
+	margin: 0 auto;
+	border: 1px solid green;
+	margin-bottom: 2px;
+	visibility: hidden;
+	box-shadow: 2px 2px 15px 0 black;
+}
+.info h1 {
+	height: 98px;
+	display: inline-block;
+	width: 30px;
+	font-size: 24px;
+	margin: 2px 10px 0;
+}
+.desc {
+	display: inline-block;
+	height: 100px;
+	width: 300px;
+	vertical-align: top;
+	padding-top: 1px;
+}
+.score{
+	display: inline-block;
+	width: 230px;
+	vertical-align: top;
+	h1{
+		font-size: 30px;
+	}
+	
+	i{
+		font-size: 66px;
+		display: inline-block;
+	}
+
+}
+
+#pl1,
+#pl2 {
+	height: 48px;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+span {
+	border-radius: 50%;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-top: 10px;
+}
+em {
+	display: inline-block;
+	height: 30px;
+	vertical-align: 50%;
+	margin-left: 5px;
+}
+#pl1 span {
+	background-color: red;
+}
+#pl2 span {
+	background-color: blue;
+}
+#pl1 img,
+#pl2 img {
+	width: 30px;
+	height: 30px;
+	margin-top: 10px;
+	display: inline-block;
+}
+#pl1.curr,
+#pl2.curr {
+	background-color: #008B8B;
+}
+canvas,
+.nosupport {
+	background-color: #f0f0f0;
+	margin: 0 auto;
+	display: block;
+	cursor: pointer;
+	/*border: 1px solid green;*/
+	z-index: 10;
+	box-shadow: 2px 2px 15px 0 black;
+}
+.bb {
+	/*overflow: hidden;*/
+	position: relative;
+}
+.pnl {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	z-index: 99;
+	top: 0;
+	left: 50%;
+	margin-left: -300px;
+	border-radius: 8px;
+	box-shadow: 2px 2px 15px 0 black;
+	background-color: #F0F0F0;
+}
+.startpnl {
+	background: url("../img/bg2.jpg") no-repeat;
+}
+.winer {
+	display: none; //			opacity: .4;
+	h1 {
+		display: block;
+		position: absolute;
+		top: 15px;
+		left: 150px;
+		color: red;
+		font-weight: bold;
+		opacity: 1;
+	}
+	input[type=button] {
+		display: block;
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+	}
+}
+.inputinfo {
+	width: 100%;
+	height: 520px;
+}
+h3 {
+	display: block;
+	font-size: 16px;
+	color: white;
+	border: 1px solid tomato;
+	background-color: darkcyan;
+	width: 100px;
+	text-align: center;
+	line-height: 36px;
+	height: 40px;
+	margin: 10px -35px;
+	box-shadow: 1px 1px 8px 0 black;
+}
+input[type=button] {
+	display: block;
+	border: 1px solid greenyellow;
+	background-color: green;
+	cursor: pointer;
+	width: 200px;
+	height: 60px;
+	margin: 0 auto;
+	color: white;
+	font-size: 24px;
+	box-shadow: 2px 2px 15px 0 black;
+}
+input[type=radio] {
+	margin-right: 15px;
+}
+.box {
+	width: 500px;
+	margin: 0 auto;
+}
