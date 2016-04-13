@@ -7,7 +7,7 @@
   font-family: "microsoft yahei", "arial, helvetica, sans-serif";
 }
 .info {
-  background-color: #f3f6f0;
+  background-color: #F3F6F0;
   height: 100px;
   width: 600px;
   margin: 0 auto;
@@ -26,21 +26,43 @@
 .desc {
   display: inline-block;
   height: 100px;
-  width: 300px;
+  width: 150px;
   vertical-align: top;
   padding-top: 1px;
 }
 .score {
   display: inline-block;
-  width: 230px;
+  width: 200px;
   vertical-align: top;
 }
 .score h1 {
   font-size: 30px;
 }
 .score i {
-  font-size: 66px;
+  font-size: 54px;
   display: inline-block;
+}
+.menu {
+  display: inline-block;
+  width: 170px;
+  vertical-align: top;
+  margin: 8px 0px;
+}
+.menu a {
+  padding: 5px 6px;
+  margin-top: 5px;
+  display: inline-block;
+  border: 1px solid greenyellow;
+  background-color: green;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  box-shadow: 1px 1px 5px 0 black;
+  text-decoration: none;
+  margin-right: 8px;
+}
+.menu a:hover {
+  background-color: #008B8B;
 }
 #pl1,
 #pl2 {
@@ -78,6 +100,11 @@ em {
 #pl2.curr {
   background-color: #008B8B;
 }
+#pl1.curr em,
+#pl2.curr em {
+  font-weight: bold;
+  color: orange;
+}
 canvas,
 .nosupport {
   background-color: #f0f0f0;
@@ -105,7 +132,7 @@ canvas,
   background-color: #F0F0F0;
 }
 .startpnl {
-  background: url("../img/bg2.jpg") no-repeat;
+  background: url("http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/main.jpg") no-repeat;
 }
 .winer {
   display: none;
@@ -154,8 +181,11 @@ input[type=button] {
   font-size: 24px;
   box-shadow: 2px 2px 15px 0 black;
 }
-input[type=radio] {
-  margin-right: 15px;
+input[type=text] {
+  border: 1px solid #008000;
+  outline: none;
+  height: 18px;
+  width: 120px;
 }
 .box {
   width: 500px;
