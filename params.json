@@ -1,6 +1,6 @@
 {
   "name": "Gobang 五子棋 HTML5",
   "tagline": "五子棋,html5,canvas,js游戏",
-  "body": "# 五子棋,html5,canvas,js游戏",
+  "body": "# 五子棋,html5,canvas,js游戏\r\n![主界面](http://images2015.cnblogs.com/blog/274368/201604/274368-20160414095456926-524225361.jpg)\r\n![游戏界面演示一 ](http://images2015.cnblogs.com/blog/274368/201604/274368-20160414095505613-1383555288.jpg)\r\n![游戏界面演示二](http://images2015.cnblogs.com/blog/274368/201604/274368-20160414095509816-376604223.jpg)\r\n![胜利界面1](http://images2015.cnblogs.com/blog/274368/201604/274368-20160414095518566-1010443147.jpg)\r\n![win2](http://images2015.cnblogs.com/blog/274368/201604/274368-20160414095525691-32985743.jpg)",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
