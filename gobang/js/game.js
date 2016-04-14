@@ -127,7 +127,7 @@
 		 */
 		self.back = function() {
 
-			if (my.downChessmanStackC2d.length > 0) {
+			if (!my.gameover && my.downChessmanStackC2d.length > 0) {
 
 				var backtime = 1;
 
@@ -572,6 +572,7 @@
 		}
 
 		/**
+		 * 坐标换算
 		 * @param {Object} loc
 		 * @return {Object} I 二维数组横点()，J二维数组纵点，IX 横点起始坐标,JY纵点起始坐标,player 最后下棋玩, winer 赢家
 		 */
@@ -690,12 +691,6 @@
 		};
 
 		var BOARD_SIZE = -1; //棋盘格子数量
-		//var OFFSET = 40;//格子偏移量  
-		//var CELL_WIDTH = 40;//行宽  
-		//var CENTER = 8;  
-		//var array = new Array();//记录每个格子是否有棋子-1表示空位1表示己方棋子2表示地方棋子  
-		//var isPlay = true;//是否该玩家下棋  
-		//var C_STEP = 0,P_STEP = 0;//AI和玩家走的棋数  
 
 		//初始化
 		AI.init = function() {
@@ -895,6 +890,7 @@
 			return weight;
 		};
 		//权重方案   活：两边为空可下子，死：一边为空
+		//其实还有很多种方案，这种是最简单的
 		AI.weightStatus = function(nums, side1, side2, isAI) {
 			var weight = 0;
 			switch (nums) {
