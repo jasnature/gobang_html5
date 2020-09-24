@@ -1,6 +1,6 @@
 //  ========== 
 //  =name:gobang 游戏 
-//  =anthor:刘敬
+//  =anthor:jasnature
 //  =last modify date:2016-04-13
 //  ========== 
 (function(win) {
