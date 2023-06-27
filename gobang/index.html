@@ -39,7 +39,7 @@
 			</canvas>
 			<div class="pnl startpnl">
 				<div class="inputinfo">
-					<img src="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/logo.png" width="100%" height="140" />
+					<img src="/img/logo.png" width="100%" height="140" />
 					<div class="box">
 						<h3>选手</h3>
 						<label>玩家A：</label> <input type="text" id="plname1Input" value="玩家一" />
@@ -48,7 +48,7 @@
 					</div>
 					<div class="box">
 						<h3>棋子类型</h3>
-						<label for="ct2">仿真棋子 <img src="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/playA.png" width="20" height="20"/><img src="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/playB.png" width="20" height="20"/></label> <input type="radio" checked="checked" name="chesstype" value="2" id="ct2" />
+						<label for="ct2">仿真棋子 <img src="/img/playA.png" width="20" height="20"/><img src="/img/playB.png" width="20" height="20"/></label> <input type="radio" checked="checked" name="chesstype" value="2" id="ct2" />
 						<label for="ct1">颜色棋子 <span style="background-color: red; width: 20px; height: 20px;"></span> <span style="background-color: blue;width: 20px; height: 20px;"></span> </label> <input type="radio" value="1" name="chesstype" id="ct1" />
 
 					</div>
@@ -57,12 +57,12 @@
 
 						<label for="cbg1">默认</label>
 						<input type="radio" name="chessbg" checked="checked" value="default" id="cbg1" />
-						<label for="cbg2"><img src="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/bg1.jpg"   width="100" height="50"/></label>
-						<input type="radio" name="chessbg" value="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/bg1.jpg" id="cbg2" />
-						<label for="cbg2"><img src="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/bg2.jpg"   width="100" height="50"/></label>
-						<input type="radio" name="chessbg" value="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/bg2.jpg" id="cbg2" />
-						<label for="cbg3"><img src="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/bg3.jpg" width="100" height="50"/></label>
-						<input type="radio" name="chessbg" value="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/bg3.jpg" id="cbg3" />
+						<label for="cbg2"><img src="/img/bg1.jpg"   width="100" height="50"/></label>
+						<input type="radio" name="chessbg" value="/img/bg1.jpg" id="cbg2" />
+						<label for="cbg2"><img src="/img/bg2.jpg"   width="100" height="50"/></label>
+						<input type="radio" name="chessbg" value="/img/bg2.jpg" id="cbg2" />
+						<label for="cbg3"><img src="/img/bg3.jpg" width="100" height="50"/></label>
+						<input type="radio" name="chessbg" value="/img/bg3.jpg" id="cbg3" />
 
 						<h3>线条颜色</h3>
 						<label for="cc1">默认(绿色)</label> <input type="radio" checked="checked" name="chesscolor" value="green" id="cc1" />
@@ -76,7 +76,7 @@
 				<input type="button" id="startgame" value="开始游戏" />
 			</div>
 			<div id="winer" class="pnl winer">
-				<img src="http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/winer.jpeg" width="600" height="600" />
+				<img src="/img/winer.jpeg" width="600" height="600" />
 				<h1 id="winerName">恭喜！xxx赢了</h1>
 				<input type="button" value="再来一把" tabindex="0" autofocus="autofocus" onclick="restartgui()" />
 			</div>
@@ -131,8 +131,8 @@
 					playAName: plname1Input.value,
 					playBName: plname2Input.value,
 					backColorORImg: bcorimgvalue,
-					playAImg: "http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/playA.png",
-					playBImg: "http://sandbox.runjs.cn/uploads/rs/62/nbqodq5i/playB.png",
+					playAImg: "/img/playA.png",
+					playBImg: "/img/playB.png",
 					playerBIsComputer:openComputer.checked
 				};
 			}
